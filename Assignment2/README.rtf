@@ -1,0 +1,53 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1404\cocoasubrtf470
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\froman\fcharset0 TimesNewRomanPSMT;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Part3: Analyzing the runtime complexity of the algorithm Huffman(x) with the following 3 implementation:\
+	    
+\f1 Algorithm Huffman(X):\
+\pard\pardeftab720\ri0\partightenfactor0
+\cf0 	Input: String X of length n with d distinct characters	\
+	Output: Huffman tree for X\
+	1.  Compute the frequency f(c) of each character c of X.\
+	2.  Initialize a priority queue Q\
+	3.  For each character c in X do  \{\
+	4.	Create a single-node binary tree T storing c\
+	5.	Insert T with key f(c) into Q \}\
+	6.  While Q.size() > 1 do \{\
+	7.	e1= Q.removeMin() \
+	8.	e2= Q.removeMin()\
+	9.         Create  new binary tree newT with left subtree e1.tree and right subtree e2.tree\
+	10.	newFreq= e1.freq+e2.freq\
+	11.	Insert newT with key newFreq into Q \
+\pard\pardeftab720\li720\fi720\ri0\partightenfactor0
+\cf0 \}\
+\pard\pardeftab720\ri0\partightenfactor0
+\cf0             12. e= Q.removeMin()\
+  	13. return e.tree\
+	\
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0 \cf0 A: Implementation using a priority queue Q in sorted list:\
+	As for sorted priority queue has run-time complexity of method:\
+	Inserting items O(n) \
+	removeMin() and minKey() are cost O(1)\
+	\
+	In total, the run-time complexity for Huffman(X) under the implementation of sorted list\
+	is O(1+n+n^2+1)= O(n^2).\
+\
+B: Implementation using a priority queue Q in unsorted list:\
+	insertion O(1)\
+	removeMin O(n)\
+	\
+	In total, the run-time complexity for Huffman(X) under the implementation of unsorted list\
+	is O(n+n^2+1) =O(n^2).\
+\
+C Implementation using a priority queue Q in heap: \
+	insertion O(logn)\
+	removeMin O(logn)\
+\
+	in total the run-time complexity for Huffman(X) under the implementation of heap\
+	is  O(n log n).\
+	}
